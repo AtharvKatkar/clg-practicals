@@ -19,11 +19,11 @@ int isEmpty(Queue *q)
 {
     if (q->rear == -1)
     {
-        return 0;
+        return 1;
     }
     else
     {
-        return 1;
+        return 0;
     }
 }
 
@@ -63,8 +63,13 @@ void dequeue(Queue *q)
 
 void printQueue(Queue *q)
 {
-    for (int i = q->front; i < q->rear - 1; i++)
+    for (int i = q->front + 1; i < q->rear; i++)
     {
-        printf("data - %d pri -%d \n", q->data[i], q->pri[i]);
+        printf("data: %d pri: %d \n", q->data[i], q->pri[i]);
     }
+}
+
+void rmByPri(Queue *q, int pri)
+{
+    // TODO: implement this function
 }
