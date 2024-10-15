@@ -46,8 +46,13 @@ void enqueue(Queue *q, int data, int priority)
         printf("Queue if full\n");
         return;
     }
-    q->data[q->rear] = data;
-    q->pri[q->rear] = priority;
+    int i = q->front;
+    while (i < q->rear && q->pri[i] < priority)
+    {
+        i++;
+    }
+    q->data[i] = data;
+    q->pri[i] = priority;
     q->rear++;
 }
 
